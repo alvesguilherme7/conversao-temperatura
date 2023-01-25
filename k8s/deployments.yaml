@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-app-conversao
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-conversao
+  template:
+    metadata:
+      labels:
+        app: web-conversao
+    spec:
+      containers:
+      - name: app-conversao
+        image: alvesguilherme7/conversao-temperatura:v4
+        ports:
+          - containerPort: 80
